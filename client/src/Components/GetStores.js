@@ -1,25 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { useQuery, gql } from "@apollo/client";
+import React, { useEffect } from "react";
+import { useQuery } from "@apollo/client";
 import { LOAD_STORES } from "../GraphQL/Queries";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { stores as storesAtom } from "../atoms";
 
 function GetStores() {
-  const { error, loading, data } = useQuery(LOAD_STORES);
+  const { data, startPolling, stopPolling } = useQuery(LOAD_STORES);
+  const [stores, setStores] = useRecoilState(storesAtom);
 
   useEffect(() => {
     console.log(data);
-  }, [data]);
+    startPolling(500);
+    if (data) setStores(data.getAllStores);
+    return () => stopPolling();
+  }, [startPolling, stopPolling, data, setStores]);
+
   return (
     <>
-      {data && (
+      <h1>All Stores</h1>
+      {stores && (
         <div>
-          {data.getAllStores.map((store, index) => {
-            return <p key={index}>{store.location} | {store.stock_count} | {store.item_price}</p>;
+          {stores.map((store, index) => {
+            return (
+              <p key={index}>
+                {store.location} | {store.stock_count} | {store.item_price}
+              </p>
+            );
           })}
         </div>
       )}
-      {null}
     </>
   );
 }
 
-export default GetStores;
+export { GetStores };
+
+//add state for filtering to find stores
+//update filter
+//let map incorporate filter atom for display

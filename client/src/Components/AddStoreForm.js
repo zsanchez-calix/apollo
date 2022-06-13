@@ -2,7 +2,7 @@ import React from "react";
 import { CREATE_STORE_MUTATION } from "../GraphQL/Mutations";
 import { useMutation } from "@apollo/client";
 
-function Form() {
+function AddStoreForm() {
   const [createStore, { error }] = useMutation(CREATE_STORE_MUTATION);
 
   const handleSubmit = () => {
@@ -24,6 +24,7 @@ function Form() {
 
   return (
     <div>
+      <h3>Add Store</h3>
       <input type="text" id="location" placeholder="location"></input>
       <input type="text" id="stock_count" placeholder="stock_count"></input>
       <input type="text" id="item_price" placeholder="item_price"></input>
@@ -32,4 +33,4 @@ function Form() {
   );
 }
 
-export default Form;
+export { AddStoreForm };

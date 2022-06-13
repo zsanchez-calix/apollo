@@ -6,8 +6,10 @@ import {
   from,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import GetStores from "./Components/GetStores";
-import Form from "./Components/Form";
+import { GetStores } from "./Components/GetStores";
+import { AddStoreForm } from "./Components/AddStoreForm";
+import { FindStoresForm } from "./Components/FindStoresForm";
+import { RecoilRoot } from "recoil";
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
@@ -31,8 +33,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <GetStores />
-      <Form />
+      <RecoilRoot>
+        <FindStoresForm />
+        <AddStoreForm />
+        <GetStores />
+      </RecoilRoot>
     </ApolloProvider>
   );
 }
