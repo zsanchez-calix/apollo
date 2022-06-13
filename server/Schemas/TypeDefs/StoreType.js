@@ -1,10 +1,14 @@
-const { GraphQLObjectType, GraphQLString, GraphQLFloat } = require("graphql");
+const {
+  graphql,
+  GraphQLObjectType,
+  GraphQLFloat,
+  GraphQLString,
+} = require("graphql");
 
-//making a type
 const StoreType = new GraphQLObjectType({
-  name: "StoreType", //name of type
+  name: "StoreType",
   fields: () => ({
-    store_id: { type: GraphQLFloat }, //declaring types
+    store_id: { type: GraphQLFloat },
     location: { type: GraphQLString },
     stock_count: { type: GraphQLFloat },
     item_price: { type: GraphQLFloat },
