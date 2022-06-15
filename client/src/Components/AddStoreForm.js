@@ -1,9 +1,12 @@
 import React from "react";
 import { CREATE_STORE_MUTATION } from "../GraphQL/Mutations";
 import { useMutation } from "@apollo/client";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { storesFilter as storesFilterAtom } from "../atoms";
 
 function AddStoreForm() {
   const [createStore, { error }] = useMutation(CREATE_STORE_MUTATION);
+  const [storesFilter, setStoresFilter] = useRecoilState(storesFilterAtom);
 
   const handleSubmit = () => {
     let location = document.getElementById("location").value;
@@ -20,6 +23,18 @@ function AddStoreForm() {
     if (error) {
       console.log(error);
     }
+
+    setStoresFilter({
+      allStores: true,
+      store_id: null,
+      location: null,
+      stock_count: null,
+      item_price: null,
+    });
+
+    document.getElementById("item_price").value = "";
+    document.getElementById("location").value = "";
+    document.getElementById("stock_count").value = "";
   };
 
   return (

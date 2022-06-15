@@ -3,7 +3,7 @@ import { atom } from "recoil";
 export const storesFilter = atom({
   key: "storesFilter",
   default: {
-    allStores: false,
+    allStores: true,
     store_id: null,
     location: null,
     stock_count: null,
