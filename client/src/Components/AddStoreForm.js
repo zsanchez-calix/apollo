@@ -9,16 +9,24 @@ function AddStoreForm() {
   const [storesFilter, setStoresFilter] = useRecoilState(storesFilterAtom);
 
   const handleSubmit = () => {
-    let location = document.getElementById("location").value;
-    let stock_count = parseFloat(document.getElementById("stock_count").value);
-    let item_price = parseFloat(document.getElementById("item_price").value);
+    let location = document.getElementById("locationAdd");
+    let carrotsAmount = document.getElementById("carrotsAmount");
+    let carrotsPrice = document.getElementById("carrotsPrice");
+    let applesAmount = document.getElementById("applesAmount");
+    let applesPrice = document.getElementById("applesPrice");
+    let orangesAmount = document.getElementById("orangesAmount");
+    let orangesPrice = document.getElementById("orangesPrice");
 
     createStore({
       variables: {
-        location: location,
-        stock_count: stock_count,
-        item_price: item_price,
-      },
+        location: location.value,
+        carrotsAmount: parseInt(carrotsAmount.value),
+        carrotsPrice: parseFloat(carrotsPrice.value),
+        applesAmount: parseInt(applesAmount.value),
+        applesPrice: parseFloat(applesPrice.value),
+        orangesAmount: parseInt(orangesAmount.value),
+        orangesPrice: parseFloat(orangesPrice.value)
+      }
     });
     if (error) {
       console.log(error);
@@ -26,23 +34,55 @@ function AddStoreForm() {
 
     setStoresFilter({
       allStores: true,
-      store_id: null,
-      location: null,
-      stock_count: null,
-      item_price: null,
+      location: "",
+      item: "carrots",
+      price: 100
     });
 
-    document.getElementById("item_price").value = "";
-    document.getElementById("location").value = "";
-    document.getElementById("stock_count").value = "";
+    location.value =
+      carrotsAmount.value =
+      carrotsPrice.value =
+      applesAmount.value =
+      applesPrice.value =
+      orangesAmount.value =
+      orangesPrice.value =
+        "";
   };
 
   return (
     <div>
       <h3>Add Store</h3>
-      <input type="text" id="location" placeholder="location"></input>
-      <input type="text" id="stock_count" placeholder="stock_count"></input>
-      <input type="text" id="item_price" placeholder="item_price"></input>
+      <input type="text" id="locationAdd" placeholder="location"></input>
+      <input
+        type="text"
+        id="carrotsAmount"
+        placeholder="number of carrots"
+      ></input>
+      <input
+        type="text"
+        id="carrotsPrice"
+        placeholder="price of one carrot"
+      ></input>
+      <input
+        type="text"
+        id="applesAmount"
+        placeholder="number of apples"
+      ></input>
+      <input
+        type="text"
+        id="applesPrice"
+        placeholder="price of one apple"
+      ></input>
+      <input
+        type="text"
+        id="orangesAmount"
+        placeholder="number of oranges"
+      ></input>
+      <input
+        type="text"
+        id="orangesPrice"
+        placeholder="price of one orange"
+      ></input>
       <button onClick={handleSubmit}>Submit</button>
     </div>
   );

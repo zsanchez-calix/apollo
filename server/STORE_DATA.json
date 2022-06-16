@@ -2,121 +2,91 @@
   {
     "store_id": 1,
     "location": "19 Westerfield Drive",
-    "stock_count": 1,
-    "item_price": 86.13
+    "items": [
+      { "item": "carrots", "price": 3.8, "amount": 10 },
+      { "item": "apples", "price": 8.5, "amount": 16 },
+      { "item": "oranges", "price": 2.3, "amount": 18 }
+    ]
   },
   {
     "store_id": 2,
     "location": "17686 Stuart Pass",
-    "stock_count": 2,
-    "item_price": 12.13
+    "items": [
+      { "item": "carrots", "price": 5.5, "amount": 10 },
+      { "item": "apples", "price": 2.5, "amount": 16 },
+      { "item": "oranges", "price": 8.8, "amount": 18 }
+    ]
   },
   {
     "store_id": 3,
     "location": "4 Dayton Plaza",
-    "stock_count": 3,
-    "item_price": 66.52
+    "items": [
+      { "item": "carrots", "price": 25, "amount": 10 },
+      { "item": "apples", "price": 4, "amount": 16 },
+      { "item": "oranges", "price": 9.5, "amount": 18 }
+    ]
   },
   {
     "store_id": 4,
     "location": "14 Comanche Plaza",
-    "stock_count": 4,
-    "item_price": 2.17
+    "items": [
+      { "item": "carrots", "price": 10, "amount": 10 },
+      { "item": "apples", "price": 7.8, "amount": 16 },
+      { "item": "oranges", "price": 16, "amount": 18 }
+    ]
   },
   {
     "store_id": 5,
     "location": "74369 Clyde Gallagher Alley",
-    "stock_count": 5,
-    "item_price": 85.96
+    "items": [
+      { "item": "carrots", "price": 8, "amount": 10 },
+      { "item": "apples", "price": 9, "amount": 16 },
+      { "item": "oranges", "price": 12.4, "amount": 18 }
+    ]
   },
   {
     "store_id": 6,
     "location": "9738 Birchwood Court",
-    "stock_count": 6,
-    "item_price": 7.36
+    "items": [
+      { "item": "carrots", "price": 2.3, "amount": 10 },
+      { "item": "apples", "price": 18, "amount": 16 },
+      { "item": "oranges", "price": 5, "amount": 18 }
+    ]
   },
   {
     "store_id": 7,
     "location": "20 Lighthouse Bay Alley",
-    "stock_count": 7,
-    "item_price": 38.47
+    "items": [
+      { "item": "carrots", "price": 9, "amount": 10 },
+      { "item": "apples", "price": 23.5, "amount": 16 },
+      { "item": "oranges", "price": 2.8, "amount": 18 }
+    ]
   },
   {
     "store_id": 8,
     "location": "1249 Evergreen Terrace",
-    "stock_count": 8,
-    "item_price": 4.18
+    "items": [
+      { "item": "carrots", "price": 55, "amount": 10 },
+      { "item": "apples", "price": 1.5, "amount": 16 },
+      { "item": "oranges", "price": 6.5, "amount": 18 }
+    ]
   },
   {
     "store_id": 9,
     "location": "261 Clove Hill",
-    "stock_count": 9,
-    "item_price": 41.03
+    "items": [
+      { "item": "carrots", "price": 19, "amount": 10 },
+      { "item": "apples", "price": 9.2, "amount": 16 },
+      { "item": "oranges", "price": 44, "amount": 18 }
+    ]
   },
   {
     "store_id": 10,
     "location": "8 Ridgeview Circle",
-    "stock_count": 10,
-    "item_price": 85.09
-  },
-  {
-    "store_id": 11,
-    "location": "64 International Terrace",
-    "stock_count": 11,
-    "item_price": 56.9
-  },
-  {
-    "store_id": 12,
-    "location": "55 Evergreen Junction",
-    "stock_count": 12,
-    "item_price": 33.59
-  },
-  {
-    "store_id": 13,
-    "location": "71117 Jenna Road",
-    "stock_count": 13,
-    "item_price": 28.05
-  },
-  {
-    "store_id": 14,
-    "location": "1831 Hoard Alley",
-    "stock_count": 14,
-    "item_price": 95.82
-  },
-  {
-    "store_id": 15,
-    "location": "9 Del Mar Plaza",
-    "stock_count": 15,
-    "item_price": 96.55
-  },
-  {
-    "store_id": 16,
-    "location": "0814 Clarendon Way",
-    "stock_count": 16,
-    "item_price": 10.56
-  },
-  {
-    "store_id": 17,
-    "location": "02 Roxbury Terrace",
-    "stock_count": 17,
-    "item_price": 32.66
-  },
-  {
-    "store_id": 18,
-    "location": "34009 Thierer Place",
-    "stock_count": 18,
-    "item_price": 74.63
-  },
-  {
-    "store_id": 19,
-    "location": "60 Shoshone Road",
-    "stock_count": 19,
-    "item_price": 37.51
-  },
-  {
-    "store_id": 20,
-    "location": "101 Jay Parkway",
-    "stock_count": 20,
-    "item_price": 18.21
+    "items": [
+      { "item": "carrots", "price": 4.3, "amount": 10 },
+      { "item": "apples", "price": 12.3, "amount": 16 },
+      { "item": "oranges", "price": 30.9, "amount": 18 }
+    ]
   }
 ]
