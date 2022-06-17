@@ -6,6 +6,7 @@ const {
   GraphQLFloat,
   GraphQLList,
   GraphQLInt,
+  GraphQLBoolean
 } = require("graphql");
 const StoreType = require("./TypeDefs/StoreType");
 
@@ -17,18 +18,13 @@ const RootQuery = new GraphQLObjectType({
     getAllStores: {
       type: new GraphQLList(StoreType), //type of query returned and of what type
       args: {
+        all: { type: GraphQLBoolean },
         location: { type: GraphQLString },
         item: { type: GraphQLString },
-        price: { type: GraphQLFloat },
+        price: { type: GraphQLFloat }
       }, //argument types
-      resolve(
-        parent,
-        args //funcion to be executed
-      ) {
-        if (!args.location && !args.item && !args.price) return storeData;
-
-        //front end default values should be location = null and price = 0
-        //take location, item, price parameters
+      resolve(parent, args) {
+        if (args.all) return storeData;
         return storeData.filter((store) => {
           //filter through stores
           if (
@@ -52,9 +48,9 @@ const RootQuery = new GraphQLObjectType({
             }
           }
         });
-      },
-    },
-  },
+      }
+    }
+  }
 });
 
 const Mutation = new GraphQLObjectType({
@@ -70,7 +66,7 @@ const Mutation = new GraphQLObjectType({
         applesAmount: { type: GraphQLInt },
         applesPrice: { type: GraphQLFloat },
         orangesAmount: { type: GraphQLInt },
-        orangesPrice: { type: GraphQLFloat },
+        orangesPrice: { type: GraphQLFloat }
       },
       resolve(parent, args) {
         storeData.push({
@@ -80,24 +76,24 @@ const Mutation = new GraphQLObjectType({
             {
               item: "carrots",
               price: args.carrotsPrice,
-              amount: args.carrotsAmount,
+              amount: args.carrotsAmount
             },
             {
               item: "apples",
               price: args.applesPrice,
-              amount: args.applesAmount,
+              amount: args.applesAmount
             },
             {
               item: "oranges",
               price: args.orangesPrice,
-              amount: args.orangesAmount,
-            },
-          ],
+              amount: args.orangesAmount
+            }
+          ]
         });
         return args;
-      },
-    },
-  },
+      }
+    }
+  }
 });
 
 module.exports = new GraphQLSchema({ query: RootQuery, mutation: Mutation });

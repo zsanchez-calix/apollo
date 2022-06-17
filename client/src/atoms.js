@@ -5,7 +5,7 @@ export const storesFilter = atom({
   default: {
     allStores: true,
     location: "",
-    item: "carrots",
-    price: 100
+    item: "",
+    price: 0
   }
 });

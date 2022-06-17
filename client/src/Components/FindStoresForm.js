@@ -1,5 +1,5 @@
 import React from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { storesFilter as storesFilterAtom } from "../atoms";
 
 function FindStoresForm() {
@@ -14,7 +14,7 @@ function FindStoresForm() {
       allStores: false,
       location: location.value,
       item: item.value,
-      price: parseFloat(price.value),
+      price: isNaN(parseFloat(price.value)) ? 0 : parseFloat(price.value)
     });
   };
 

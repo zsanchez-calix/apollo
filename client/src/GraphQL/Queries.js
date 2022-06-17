@@ -1,8 +1,13 @@
 import { gql } from "@apollo/client";
 
 export const LOAD_STORES = gql`
-  query getAllStores($location: String! $item: String! $price: Float!) {
-    getAllStores(location: $location item: $item price: $price) {
+  query getAllStores(
+    $all: Boolean!
+    $location: String!
+    $item: String!
+    $price: Float!
+  ) {
+    getAllStores(all: $all, location: $location, item: $item, price: $price) {
       store_id
       location
       items {
@@ -13,6 +18,3 @@ export const LOAD_STORES = gql`
     }
   }
 `;
-
-
-//might implement just get all stores

@@ -35,8 +35,8 @@ function AddStoreForm() {
     setStoresFilter({
       allStores: true,
       location: "",
-      item: "carrots",
-      price: 100
+      item: "",
+      price: 0
     });
 
     location.value =
