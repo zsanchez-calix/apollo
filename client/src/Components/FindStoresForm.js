@@ -1,33 +1,50 @@
-import React from "react";
-import { useRecoilState } from "recoil";
+import React, { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import { storesFilter as storesFilterAtom } from "../atoms";
 
 function FindStoresForm() {
-  const [storesFilter, setStoresFilter] = useRecoilState(storesFilterAtom);
+  const setStoresFilter = useSetRecoilState(storesFilterAtom);
+  const [location, setLocation] = useState("");
+  const [item, setItem] = useState("carrots");
+  const [price, setPrice] = useState(0);
 
   const handleSubmit = () => {
-    let item = document.getElementById("findItem");
-    let price = document.getElementById("findPrice");
-    let location = document.getElementById("findLocation");
-
     setStoresFilter({
-      allStores: false,
-      location: location.value,
-      item: item.value,
-      price: isNaN(parseFloat(price.value)) ? 0 : parseFloat(price.value)
+      location: location,
+      item: item,
+      price: parseFloat(price)
     });
   };
 
   return (
     <div>
       <h3>Find Stores</h3>
-      <select name="findItem" id="findItem">
+      <select
+        value={item}
+        onChange={(event) => {
+          setItem(event.target.value);
+        }}
+      >
         <option value="carrots">Carrots</option>
         <option value="apples">Apples</option>
         <option value="oranges">Oranges</option>
       </select>
-      <input type="text" id="findPrice" placeholder="price"></input>
-      <input type="text" id="findLocation" placeholder="location"></input>
+      <input
+        type="number"
+        value={price}
+        placeholder="price"
+        onChange={(event) => {
+          setPrice(event.target.value);
+        }}
+      ></input>
+      <input
+        type="text"
+        value={location}
+        placeholder="location"
+        onChange={(event) => {
+          setLocation(event.target.value);
+        }}
+      ></input>
       <button onClick={handleSubmit}>Submit</button>
     </div>
   );

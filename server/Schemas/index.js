@@ -18,23 +18,26 @@ const RootQuery = new GraphQLObjectType({
     getAllStores: {
       type: new GraphQLList(StoreType), //type of query returned and of what type
       args: {
-        all: { type: GraphQLBoolean },
         location: { type: GraphQLString },
         item: { type: GraphQLString },
         price: { type: GraphQLFloat }
       }, //argument types
       resolve(parent, args) {
-        if (args.all) return storeData;
+        if (!args.location) return storeData;
         return storeData.filter((store) => {
           //filter through stores
           if (
             //if location matches return true
-            args.location &&
+            args.location && //type of location
             store.location.toLowerCase().split(" ").join("") ===
               args.location.toLowerCase().split(" ").join("")
           ) {
             return true;
           }
+
+          // return store.items.filter((item) => {return
+          // //
+          // })
 
           for (let i = 0; i < store.items.length; i++) {
             //iterate through stores items
